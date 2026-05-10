@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homework Hound</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="popup">
+      <div class="brand">
+        <img class="dog-mark" src="chiba.png" alt="" aria-hidden="true">
+        <div>
+          <h1>Homework Hound</h1>
+          <p>Digital alibi generator</p>
+        </div>
+      </div>
+
+      <label class="field" for="speed">
+        <span>Appetite</span>
+        <select id="speed">
+          <option value="casual">Casual nibble</option>
+          <option value="hungry" selected>Hungry</option>
+          <option value="finals">Finals week</option>
+        </select>
+      </label>
+
+      <div class="actions">
+        <button id="start" type="button">Summon dog</button>
+        <button id="stop" type="button">Stop dog</button>
+        <button id="screenshot" type="button">Screenshot</button>
+        <button id="clear" type="button">Clean page</button>
+      </div>
+
+      <p id="status" class="status" role="status"></p>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

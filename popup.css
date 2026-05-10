@@ -1,0 +1,114 @@
+:root {
+  color-scheme: light;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #22170f;
+  background: #fff8e8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 286px;
+  margin: 0;
+  background:
+    linear-gradient(135deg, rgba(112, 88, 51, 0.08), transparent 42%),
+    #fff8e8;
+}
+
+.popup {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dog-mark {
+  width: 72px;
+  height: 52px;
+  object-fit: cover;
+  object-position: 13% 45%;
+  image-rendering: pixelated;
+  display: block;
+  flex: 0 0 auto;
+}
+
+h1 {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.1;
+}
+
+p {
+  margin: 3px 0 0;
+  color: #72563d;
+  font-size: 12px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+select,
+button {
+  width: 100%;
+  min-height: 34px;
+  border: 1px solid #d9bd8e;
+  border-radius: 8px;
+  font: inherit;
+}
+
+select {
+  padding: 0 10px;
+  background: #fffdf6;
+  color: #2b1d13;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+button {
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 800;
+  color: #fffdf6;
+  background: #8a4f2a;
+}
+
+button#clear {
+  color: #4b321f;
+  background: #f7e2b6;
+}
+
+button#stop {
+  color: #5b1f1f;
+  border-color: #e2a1a1;
+  background: #ffdada;
+}
+
+button#screenshot {
+  color: #4b321f;
+  background: #ffd985;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.status {
+  min-height: 16px;
+  margin: 0;
+  font-size: 12px;
+}
