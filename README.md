@@ -8,7 +8,7 @@ The extension can stop the dog, clean the page, and save an `evidence.png` scree
 
 ## Product Demo
 
-*Keep your sound on
+*Keep your sound on.
 
 https://github.com/user-attachments/assets/39b19255-cfc8-4437-b80e-ac196ba46425
 
