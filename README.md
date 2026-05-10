@@ -1,20 +1,7 @@
 # Homework Hound
 
-A tiny Chrome extension that summons a giant pixel dog to visually eat the current page. It is meant as a silly "the dog ate my digital homework" gag: the real page is not modified, but the extension paints bite marks and crumbs over it.
+Homework Hound is a Chrome extension that summons a pixel dog to run across the current page and make it look like the page is being eaten.
 
-## Load It In Chrome
+Pick an appetite, summon the hound, and watch your perfectly reasonable digital excuse develop in real time. From polite nibbling to full finals-week chaos, Chiba makes a convincing case that the assignment never stood a chance.
 
-1. Open `chrome://extensions`.
-2. Turn on **Developer mode**.
-3. Click **Load unpacked**.
-4. Select this folder: `/Users/steph/Downloads/homework-dog`.
-5. Open any page, click the Homework Hound extension, and press **Summon dog**.
-
-Use **Clean page** in the popup to remove the dog and all bite marks.
-
-## Files
-
-- `manifest.json` configures the Manifest V3 extension.
-- `popup.html`, `popup.css`, and `popup.js` render the extension popup.
-- `content.js` creates the full-screen dog and eating animation.
-- `chiba.png` and `chiba2.png` are the two dog animation frames.
+The extension can stop the dog, clean the page, and save an `evidence.png` screenshot that says “my dog ate my homework.”
