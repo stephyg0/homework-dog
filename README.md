@@ -8,6 +8,8 @@ The extension can stop the dog, clean the page, and save an `evidence.png` scree
 
 ## Product Demo
 
-<video controls width="720">
-  <source src="assets/pdemo.mov" type="video/quicktime">
-</video>
+https://github.com/user-attachments/assets/bee1c456-5dd4-4bae-978a-e54eb28cafdf
+
+
+
+
