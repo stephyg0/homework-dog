@@ -1,6 +1,5 @@
-const audio = new Audio(chrome.runtime.getURL("cat_sound.mp3"));
-audio.loop = true;
-audio.volume = 0;
+const AUDIO_FILE = "assets/cat_sound.mp3";
+let audio = createAudio(chrome.runtime.getURL(AUDIO_FILE));
 
 let fadeFrame = 0;
 let fadeStartedAt = 0;
@@ -10,15 +9,28 @@ const fadeDuration = 7000;
 function connect() {
   const port = chrome.runtime.connect({ name: "homework-dog-audio" });
   port.onMessage.addListener((message) => {
-    if (message?.type === "OFFSCREEN_FINALS_AUDIO_START") startAudio();
+    if (message?.type === "OFFSCREEN_FINALS_AUDIO_START") startAudio(message.audioUrl);
     if (message?.type === "OFFSCREEN_FINALS_AUDIO_STOP") stopAudio();
   });
   port.onDisconnect.addListener(connect);
 }
 connect();
 
-function startAudio() {
+function createAudio(url) {
+  const nextAudio = new Audio(url);
+  nextAudio.loop = true;
+  nextAudio.volume = 0;
+  return nextAudio;
+}
+
+function startAudio(audioUrl = chrome.runtime.getURL(AUDIO_FILE)) {
   cancelAnimationFrame(fadeFrame);
+
+  if (audio.src !== audioUrl) {
+    audio.pause();
+    audio = createAudio(audioUrl);
+  }
+
   audio.volume = 0;
   fadeStartedAt = performance.now();
   if (audio.paused) {

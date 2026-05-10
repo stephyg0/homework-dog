@@ -4,10 +4,11 @@ const screenshotButton = document.querySelector("#screenshot");
 const clearButton = document.querySelector("#clear");
 const speedSelect = document.querySelector("#speed");
 const status = document.querySelector("#status");
-const START_MESSAGE = "HOMEWORK_DOG_START_V6";
-const UPDATE_MESSAGE = "HOMEWORK_DOG_UPDATE_V6";
-const STOP_MESSAGE = "HOMEWORK_DOG_STOP_V6";
-const CLEAR_MESSAGE = "HOMEWORK_DOG_CLEAR_V6";
+const START_MESSAGE = "HOMEWORK_DOG_START_V8";
+const UPDATE_MESSAGE = "HOMEWORK_DOG_UPDATE_V8";
+const STOP_MESSAGE = "HOMEWORK_DOG_STOP_V8";
+const CLEAR_MESSAGE = "HOMEWORK_DOG_CLEAR_V8";
+const AUDIO_FILE = "assets/cat_sound.mp3";
 
 async function sendToActiveTab(message) {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
@@ -126,7 +127,7 @@ async function ensurePageFinalsAudio(shouldPlay) {
 
   await chrome.scripting.executeScript({
     target: { tabId: tab.id },
-    args: [chrome.runtime.getURL("cat_sound.mp3"), shouldPlay],
+    args: [chrome.runtime.getURL(AUDIO_FILE), shouldPlay],
     func: (audioUrl, play) => {
       const key = "__homeworkHoundFinalsAudio";
 
@@ -147,6 +148,13 @@ async function ensurePageFinalsAudio(shouldPlay) {
       }
 
       const audio = window[key];
+
+      if (audio.src !== audioUrl) {
+        audio.pause();
+        audio.src = audioUrl;
+        audio.load();
+      }
+
       audio.loop = true;
       audio.volume = 0;
 

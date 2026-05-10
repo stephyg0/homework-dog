@@ -1,9 +1,10 @@
 (() => {
-  const INSTALL_KEY = "__homeworkDogRuntimeV6";
-  const START_MESSAGE = "HOMEWORK_DOG_START_V6";
-  const UPDATE_MESSAGE = "HOMEWORK_DOG_UPDATE_V6";
-  const STOP_MESSAGE = "HOMEWORK_DOG_STOP_V6";
-  const CLEAR_MESSAGE = "HOMEWORK_DOG_CLEAR_V6";
+  const INSTALL_KEY = "__homeworkDogRuntimeV8";
+  const START_MESSAGE = "HOMEWORK_DOG_START_V8";
+  const UPDATE_MESSAGE = "HOMEWORK_DOG_UPDATE_V8";
+  const STOP_MESSAGE = "HOMEWORK_DOG_STOP_V8";
+  const CLEAR_MESSAGE = "HOMEWORK_DOG_CLEAR_V8";
+  const AUDIO_FILE = "assets/cat_sound.mp3";
 
   if (window[INSTALL_KEY]) {
     return;
@@ -22,8 +23,8 @@
   const DOG_MOUTH_X = 18;
   const DOG_MOUTH_Y = 106;
   const dogFrameFiles = [
-    "chiba.png",
-    "chiba2.png"
+    "assets/chiba.png",
+    "assets/chiba2.png"
   ];
   const COVERAGE_STOP_RATIO = 0.92;
   const dogSourceBoxes = [
@@ -336,11 +337,19 @@
 
   function startPageFinalsAudio() {
     if (!finalsAudio) {
-      finalsAudio = new Audio(chrome.runtime.getURL("cat_sound.mp3"));
+      finalsAudio = new Audio(chrome.runtime.getURL(AUDIO_FILE));
       finalsAudio.loop = true;
     }
 
     cancelAnimationFrame(finalsAudioFade);
+    const audioUrl = chrome.runtime.getURL(AUDIO_FILE);
+
+    if (finalsAudio.src !== audioUrl) {
+      finalsAudio.pause();
+      finalsAudio.src = audioUrl;
+      finalsAudio.load();
+    }
+
     finalsAudio.loop = true;
     finalsAudio.volume = 0;
 

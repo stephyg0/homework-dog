@@ -1,4 +1,5 @@
 const OFFSCREEN_URL = "offscreen.html";
+const AUDIO_FILE = "assets/cat_sound.mp3";
 let offscreenPort = null;
 let pendingPortResolvers = [];
 
@@ -39,7 +40,10 @@ async function startFinalsAudio() {
     throw new Error("Audio page did not connect.");
   }
 
-  offscreenPort.postMessage({ type: "OFFSCREEN_FINALS_AUDIO_START" });
+  offscreenPort.postMessage({
+    type: "OFFSCREEN_FINALS_AUDIO_START",
+    audioUrl: chrome.runtime.getURL(AUDIO_FILE)
+  });
 }
 
 async function stopFinalsAudio() {
