@@ -8,4 +8,4 @@ The extension can stop the dog, clean the page, and save an `evidence.png` scree
 
 ## Product Demo
 
-[Watch the demo](assets/pdemo.mov)
+<video src="assets/pdemo.mov" controls width="720"></video>
